@@ -180,13 +180,13 @@ function App() {
                       data.filter(
                         (item) =>
                           item.hasChanges.value === "true" &&
-                          item["JS-Trns-Id"].value.toString() === selectedTrns
+                          item["JS-Trns-Id"].value.toString() === e.target.value
                       )
                     );
                   } else
                     setFilteredData(
                       data.filter(
-                        (item) => item["JS-Trns-Id"].value === selectedTrns
+                        (item) => item["JS-Trns-Id"].value === e.target.value
                       )
                     );
                   setCurrentIndex(0);
@@ -196,7 +196,7 @@ function App() {
             <div className="flex flex-col justify-center m-4 min-w-48">
               <ButtonPanel
                 showPrevButton={currentIndex !== 0}
-                showNextButton={currentIndex !== filteredData.length}
+                showNextButton={currentIndex !== filteredData.length - 1}
                 onClickHandller={buttonClickedHandller}
               />
             </div>
@@ -213,7 +213,7 @@ function App() {
                 <CheckBox
                   id={"showChanges"}
                   onClick={() => setShowChanges(!showChanges)}
-                  label={"Show changes"}
+                  label={"Show elements with change"}
                   isChecked={showChanges}
                 />
               )}
@@ -222,7 +222,7 @@ function App() {
               <CheckBox
                 id={"showRowsWithChanges"}
                 onClick={showRowsWithChangesHandller}
-                label={"Show Rows with changes"}
+                label={"Show DA's that updated trnsaction"}
                 isChecked={showRowsWithChanges}
               />
             </div>
