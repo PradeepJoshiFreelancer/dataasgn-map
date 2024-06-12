@@ -1,7 +1,3 @@
-import React from "react";
-import DropDownButton from "./select";
-import { TransformedDataItem } from "../App";
-
 type Props = {
   onClickHandller: (num: number) => void;
   showPrevButton: boolean;
